@@ -5,9 +5,10 @@ import { FaUserCircle } from "react-icons/fa";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaWallet } from "react-icons/fa";
 import { MdFavorite, MdHelp } from "react-icons/md";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const navigate = useNavigate();
 
   const customerMenuItems = [
     { icon: <TbTruckDelivery size={25} className="mr-4" />, text: "Plans" },
@@ -25,7 +26,7 @@ const Navbar = () => {
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 shadow-sm">
       {/* Left side */}
-      <div className="flex items-center">
+      <div className="flex items-center ">
         <div onClick={() => setNav(!nav)} className="cursor-pointer">
           <AiOutlineMenu size={30} />
         </div>
@@ -39,13 +40,22 @@ const Navbar = () => {
       </div>
 
       {/* Search Input */}
-      <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
+      {/* <div className="bg-gray-200 rounded-full flex items-center px-2 w-[200px] sm:w-[400px] lg:w-[500px]">
         <AiOutlineSearch size={25} />
         <input
           className="bg-transparent p-2 w-full focus:outline-none"
           type="text"
           placeholder="Search Plans"
         />
+      </div> */}
+      <div className="hover:bg-white hover:text-black cursor-pointer rounded-[100px] p-2 " onClick={()=>navigate("/plans")} >
+      <h1>View-Plans</h1>
+      </div>
+      <div className="hover:bg-white hover:text-black cursor-pointer rounded-[100px] p-2 " onClick={()=>navigate("/addons")}>
+        <h1>View-Addons</h1>
+      </div>
+      <div className="hover:bg-white hover:text-black cursor-pointer rounded-[100px] p-2 " onClick={()=>navigate("/payment")}>
+        <h1 className="">Make-Payments</h1>
       </div>
 
       {/* <FaUserCircle size={50} className="mr-2 " /> */}

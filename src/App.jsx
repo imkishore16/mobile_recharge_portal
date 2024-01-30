@@ -10,13 +10,12 @@ function App() {
   return (
     <>
       {/* {sessionStorage.getItem("isLoggedIn") != null && ( */}
-      <div>
-        <Navbar />
-      </div>
+      
       {/* // )} */}
       <BrowserRouter>
+      <div><Navbar /></div>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/plans" element={<Plans />} />
