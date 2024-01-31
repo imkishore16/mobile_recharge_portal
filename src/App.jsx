@@ -1,11 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Plans from "./components/Plans";
-// import { Navbar } from "rsuite";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-// import Home from "./components/Home";
-
+import Register from "./components/Register";
+import Addons from "./components/Addons";
+import Invoice from "./components/Invoice";
+import Pay from "./components/Pay";
+import DataPlan from "./components/DataPlan";
+import Recharge from "./components/Recharges";
 function App() {
   return (
     <>
@@ -17,8 +20,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/plans" element={<Plans />} />
+          <Route path="/addons" element={<Addons />} />
+          <Route path="/invoice" element={<Invoice />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/recharges" element={<Recharge />} />
         </Routes>
       </BrowserRouter>
     </>

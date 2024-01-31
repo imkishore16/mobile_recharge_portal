@@ -11,22 +11,22 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const customerMenuItems = [
-    { icon: <TbTruckDelivery size={25} className="mr-4" />, text: "Plans" },
+    { icon: <TbTruckDelivery size={25} className="mr-4"/>, text: "Plans" ,},
     { icon: <MdFavorite size={25} className="mr-4" />, text: "Addons" },
     { icon: <FaWallet size={25} className="mr-4" />, text: "Recharges" },
     { icon: <MdHelp size={25} className="mr-4" />, text: " FAQ" },
   ];
   const adminMenuItems = [
-    { icon: <TbTruckDelivery size={25} className="mr-4" />, text: "Plans" },
-    { icon: <MdFavorite size={25} className="mr-4" />, text: "Addons" },
-    { icon: <FaWallet size={25} className="mr-4" />, text: "Recharges" },
-    { icon: <MdHelp size={25} className="mr-4" />, text: " FAQ" },
+    { icon: <TbTruckDelivery size={25} className="mr-4" />, text: "Add Plans" },
+    { icon: <MdFavorite size={25} className="mr-4" />, text: "Add Addons" },
+    { icon: <FaWallet size={25} className="mr-4" />, text: "Dashboard" },
+    // { icon: <MdHelp size={25} className="mr-4" />, text: "" },
   ];
 
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4 shadow-sm">
       {/* Left side */}
-      <div className="flex items-center ">
+      <div className="flex items-centerSET ">
         <div onClick={() => setNav(!nav)} className="cursor-pointer">
           <AiOutlineMenu size={30} />
         </div>
@@ -34,8 +34,8 @@ const Navbar = () => {
           DO CO <span className="font-bold">MO</span>
         </h1>
         <div className="hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px] mx-4">
-          <p className="bg-black text-white rounded-full p-2">Customer</p>
-          <p className="p-2">Admin</p>
+          <p className="bg-black text-white rounded-full p-2">Admin</p>
+          <p className="p-2">Customer</p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@ const Navbar = () => {
       <div className="hover:bg-white hover:text-black cursor-pointer rounded-[100px] p-2 " onClick={()=>navigate("/addons")}>
         <h1>View-Addons</h1>
       </div>
-      <div className="hover:bg-white hover:text-black cursor-pointer rounded-[100px] p-2 " onClick={()=>navigate("/payment")}>
+      <div className="hover:bg-white hover:text-black cursor-pointer rounded-[100px] p-2 " onClick={()=>navigate("/recharges")}>
         <h1 className="">Make-Payments</h1>
       </div>
 
@@ -76,15 +76,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {/* Overlay */}
       {nav ? (
         <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
       ) : (
         ""
       )}
 
-      {/* Side drawer menu */}
       <div
         className={
           nav
@@ -101,18 +98,41 @@ const Navbar = () => {
           DO CO <span className="font-bold">MO</span>
         </h2>
         <nav>
-          <ul className="flex flex-col p-4 text-gray-800">
-            {customerMenuItems.map(({ icon, text }, index) => {
-              return (
-                <div key={index} className=" py-4">
-                  <li className="text-md flex cursor-pointer w-[100%] rounded-full mx-auto p-1 hover:text-white hover:bg-black">
-                    {icon} {text}
-                  </li>
-                </div>
-              );
-            })}
-          </ul>
-        </nav>
+  <ul className="flex flex-col p-4 text-gray-800">
+    {customerMenuItems.map(({ icon, text }, index) => {
+      return (
+        <div key={index} className="py-4">
+          <li className="text-md flex cursor-pointer w-[100%] rounded-full mx-auto p-1 hover:text-white hover:bg-black">
+            {icon} {text}
+          </li>
+        </div>
+      );
+    })}
+  </ul>
+  
+  {sessionStorage.getItem('isLoggedIn') !== null && 
+      <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
+      <p className="mx-4 mb-0 text-center font-semibold text-slate-500">
+        Admin 
+      </p>
+    </div>
+  }
+  {sessionStorage.getItem('isLoggedIn') !== null && (
+    
+    <ul className="flex flex-col p-4 text-gray-800">
+      {adminMenuItems.map(({ icon, text }, index) => {
+        return (
+          <div key={index} className="py-4">
+            <li className="text-md flex cursor-pointer w-[100%] rounded-full mx-auto p-1 hover:text-white hover:bg-black">
+              {icon} {text}
+            </li>
+          </div>
+        );
+      })}
+    </ul>
+  )}
+</nav>
+
       </div>
     </div>
   );

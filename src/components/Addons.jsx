@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Navbar from "./Navbar";
-// import PlanComponent from "./PlanComponent";
-import Invoice from "./Invoice";
 import { Panel } from "rsuite";
-const Plans = () => {
+const Addons = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -15,65 +13,74 @@ const Plans = () => {
   };
   const plans = [
     {
-      planType: "PREPAID",
-      planName: "Monthly Plan",
-      planValidity: "30 days",
-      planDetails: "4G/5G",
-      planPrice: "10 $",
+      addonType: "PREPAID",
+      addonName: "Some plan",
+      addonValidity: "10 days",
+      addonDetails: "You have to pay",
+      addonPrice: "10 RS",
     },
+    
     {
-      planType: "PREPAID",
-      planName: "Monthly Plan",
-      planValidity: "30 days",
-      planDetails: "4G/5G",
-      planPrice: "10 $",
+      addonType: "PREPAID",
+      addonName: "Some plan",
+      addonValidity: "10 days",
+      addonDetails: "You have to pay",
+      addonPrice: "10 RS",
     },
+    
     {
-      planType: "PREPAID",
-      planName: "Max Benifit Plan",
-      planValidity: "6 months",
-      planDetails: "4G/5G",
-      planPrice: "35 $",
+      addonType: "PREPAID",
+      addonName: "Some plan",
+      addonValidity: "10 days",
+      addonDetails: "You have to pay",
+      addonPrice: "10 RS",
     },
+    
     {
-      planType: "PREPAID",
-      planName: "Yearly Plan",
-      planValidity: "12 Months",
-      planDetails: "4G/5G",
-      planPrice: "70 $",
+      addonType: "PREPAID",
+      addonName: "Some plan",
+      addonValidity: "10 days",
+      addonDetails: "You have to pay",
+      addonPrice: "10 RS",
     },
+    
     {
-      planType: "PREPAID",
-      planName: "Plan 1",
-      planValidity: "12 + 2 Months",
-      planDetails: "4G/5G",
-      planPrice: "100 $",
-    },
-    {
-      planType: "PREPAID",
-      planName: "Plan 1",
-      planValidity: "12 + 2 Months",
-      planDetails: "4G/5G",
-      planPrice: "100 $",
+      addonType: "PREPAID",
+      addonName: "Some plan",
+      addonValidity: "10 days",
+      addonDetails: "You have to pay",
+      addonPrice: "10 RS",
     },
     
   ];
   const Popup = ({ onClose }) => {
     return (
       <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50">
-        <Invoice onClose={onClose} />
+      <div className="bg-white p-4 rounded-md w-[70%] h-[70%]">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-around flex-row bg-gray-800 h-2/3">
+            <div className="bg-black w-2/3 h-full mx-2 my-16 ">
+              <h1>dskao</h1>
+            </div>
+            <div className="bg-black w-1/3 h-full mx-2 my-16">
+              <h1>dsl</h1>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
     );
   };
   
   return (
-  
+
     <div className="bg-cover bg-center h-screen bg-white" >
-      <div className=" bg-opacity-90 bg-cover" >
       {/* <div className="bg-[url('src/assets/networks.jpg')] bg-opacity-90 bg-cover" > */}
+      <div className="bg-opacity-90 bg-cover" >
+
         {isPopupOpen && <Popup onClose={closePopup} />}
         <section className="flex items-center justify-center">
-          <ul className="flex flex-wrap justify-around w-[1000px] ">
+        <ul className="flex flex-wrap justify-around w-[1000px] ">
             {plans.map((plan, index) => (
               <li key={index} className="w-1/4 flex justify-center rounded-[20px] mx-4 my-16">
                 
@@ -154,4 +161,4 @@ const Plans = () => {
   );
 };
 
-export default Plans;
+export default Addons;
