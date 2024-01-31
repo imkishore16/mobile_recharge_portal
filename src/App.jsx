@@ -9,6 +9,7 @@ import Invoice from "./components/Invoice";
 import Pay from "./components/Pay";
 import DataPlan from "./components/DataPlan";
 import Recharge from "./components/Recharges";
+import Dashboard from "./components/Dashboard"
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
           <Route path="/invoice" element={<Invoice />} />
           <Route path="/pay" element={<Pay />} />
           <Route path="/recharges" element={<Recharge />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </>

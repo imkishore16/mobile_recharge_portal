@@ -19,7 +19,7 @@ const Navbar = () => {
   const adminMenuItems = [
     { icon: <TbTruckDelivery size={25} className="mr-4" />, text: "Add Plans" },
     { icon: <MdFavorite size={25} className="mr-4" />, text: "Add Addons" },
-    { icon: <FaWallet size={25} className="mr-4" />, text: "Dashboard" },
+    { icon: <FaWallet size={25} className="mr-4" onClick={()=>{navigate("/dashboard") }} />, text: "Dashboard" },
     // { icon: <MdHelp size={25} className="mr-4" />, text: "" },
   ];
 
